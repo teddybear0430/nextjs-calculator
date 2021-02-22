@@ -10,37 +10,37 @@ export const InputAction = (inputValue: number): CaliculatorActionTypes => {
   }
 }
 
-export const PlusAction = () => {
+export const PlusAction = (): CaliculatorActionTypes => {
   return {
     type: ActionTypes.PLUS,
   }
 }
 
-export const MinusAction = () => {
+export const MinusAction = (): CaliculatorActionTypes => {
   return {
     type: ActionTypes.MINUS,
   }
 }
 
-export const MultiplyAction = () => {
+export const MultiplyAction = (): CaliculatorActionTypes => {
   return {
     type: ActionTypes.MULTIPLY,
   }
 }
 
-export const DevideAction = () => {
+export const DevideAction = (): CaliculatorActionTypes => {
   return {
     type: ActionTypes.DIVIDE,
   }
 }
 
-export const ClearAction = () => {
+export const ClearAction = (): CaliculatorActionTypes => {
   return {
     type: ActionTypes.CLEAR,
   }
 }
 
-export const EqualAction = () => {
+export const EqualAction = (): CaliculatorActionTypes => {
   return {
     type: ActionTypes.EQUAL,
   }

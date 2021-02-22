@@ -16,7 +16,6 @@ export const calculatorReducer = (
   switch (action.type) {
     // 数値を入力したときの処理
     case ActionTypes.INPUT_NUMBER:
-      console.log(state);
       return {
         ...state,
         // * 10しないと入力した値の保持ができない
@@ -109,48 +108,10 @@ export const calculatorReducer = (
         };
       }
 
-      // イコールを押したとき
-      case ActionTypes.EQUAL:
-        switch (state.operator) {
-          case '+':
-            return {
-              inputValue: state.resultValue + state.inputValue,
-              operator: '',
-              calculate: false,
-              resultValue: state.resultValue + state.inputValue,
-              showingResult: true,
-            };
-          case '-':
-            return {
-              inputValue: state.resultValue - state.inputValue,
-              operator: '',
-              calculate: false,
-              resultValue: state.resultValue - state.inputValue,
-              showingResult: true,
-            };
-          case '*':
-            return {
-              inputValue: state.resultValue * state.inputValue,
-              operator: '',
-              calculate: false,
-              resultValue: state.resultValue * state.inputValue,
-              showingResult: true,
-            };
-          case '/':
-            return {
-              inputValue: state.resultValue / state.inputValue,
-              operator: '',
-              calculate: false,
-              resultValue: state.resultValue / state.inputValue,
-              showingResult: true,
-            };
-          default:
-            return state;
-        }
-
     // 入力をクリアしたときの処理
     case ActionTypes.CLEAR:
       return {
+        ...state,
         inputValue: 0,
         operator: '',
         resultValue: 0,
@@ -158,7 +119,54 @@ export const calculatorReducer = (
         showingResult: false,
       }
 
-      default:
-        return state;
+    // イコールを押したとき
+    case ActionTypes.EQUAL:
+      switch (state.operator) {
+        case '+':
+          return {
+            ...state,
+            inputValue: state.resultValue + state.inputValue,
+            operator: '',
+            calculate: false,
+            resultValue: state.resultValue + state.inputValue,
+            showingResult: true,
+          };
+
+        case '-':
+          return {
+            ...state,
+            inputValue: state.resultValue - state.inputValue,
+            operator: '',
+            calculate: false,
+            resultValue: state.resultValue - state.inputValue,
+            showingResult: true,
+          };
+
+        case '*':
+          return {
+            ...state,
+            inputValue: state.resultValue * state.inputValue,
+            operator: '',
+            calculate: false,
+            resultValue: state.resultValue * state.inputValue,
+            showingResult: true,
+          };
+
+        case '/':
+          return {
+            ...state,
+            inputValue: state.resultValue / state.inputValue,
+            operator: '',
+            calculate: false,
+            resultValue: state.resultValue / state.inputValue,
+            showingResult: true,
+          };
+
+        default:
+          return state;
+      }
+
+    default:
+      return state;
   }
 }

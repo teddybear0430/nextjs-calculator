@@ -4,6 +4,6 @@ export const ActionTypes = {
   MINUS: 'MINUS',
   MULTIPLY: 'MULTIPLY',
   DIVIDE: 'DIVIDE',
+  CLEAR: 'CLEAR',
   EQUAL: 'EQUAL',
-  CLEAR: 'CLEAR'
 } as const;
