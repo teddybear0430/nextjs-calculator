@@ -24,33 +24,32 @@ const IndexPage = () => (
     <CalculatorDiv>
       <Display />
       <Row>
-        <OperatorButton operatorType='C' />
+        <OperatorButton operatorLabel='C' operatorType='CLEAR' />
         <BaseButton></BaseButton>
         <BaseButton></BaseButton>
-        <OperatorButton operatorType='÷' />
+        <OperatorButton operatorLabel='÷' operatorType='DEVIDE'/>
       </Row>
       <Row>
         <NumButton num={7} />
         <NumButton num={8} />
         <NumButton num={9} />
-        <OperatorButton operatorType='×' />
+        <OperatorButton operatorLabel='×' operatorType='MULTIPLY'/>
       </Row>
       <Row>
         <NumButton num={4} />
         <NumButton num={5} />
         <NumButton num={6} />
-        <OperatorButton operatorType='-' />
+        <OperatorButton operatorLabel='-' operatorType='MINUS' />
       </Row>
       <Row>
         <NumButton num={1} />
         <NumButton num={2} />
         <NumButton num={3} />
-        <OperatorButton operatorType='+' />
+        <OperatorButton operatorLabel='+' operatorType='PLUS' />
       </Row>
       <Row>
         <NumButton num={0} />
-        <OperatorButton operatorType='.' />
-        <OperatorButton operatorType='=' />
+        <OperatorButton operatorLabel='=' operatorType='EQUAL' />
       </Row>
     </CalculatorDiv>
   </Layout>
