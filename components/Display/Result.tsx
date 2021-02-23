@@ -19,7 +19,12 @@ const fixDigits = (resultValue: string | number) => {
   if (resultValue >= 1e10) {
     return resultValue.toExponential(2);
   } else {
-    return Math.round(resultValue * 1000000) / 1000000;
+    const num = Math.round(resultValue * 1000000) / 1000000;
+
+    // 桁数が4桁以上の時は、カンマ区切りで表示
+    if (num >= 1000) return num.toLocaleString();
+
+    return num;
   }
 };
 
