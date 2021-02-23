@@ -6,7 +6,7 @@ import {
   PlusAction,
   MinusAction,
   MultiplyAction,
-  DevideAction,
+  DivideAction,
   ClearAction,
   EqualAction,
   DecimalPointAction
@@ -34,7 +34,7 @@ const OperatorButton: React.FC<Props> = ({ operatorLabel, operatorType }) => {
     } else if(operatorType === 'MULTIPLY') {
       dispatch(MultiplyAction());
     } else if(operatorType === 'DEVIDE') {
-      dispatch(DevideAction());
+      dispatch(DivideAction());
     } else if(operatorType === 'CLEAR') {
       dispatch(ClearAction());
     } else if(operatorType === 'EQUAL') {
@@ -42,6 +42,34 @@ const OperatorButton: React.FC<Props> = ({ operatorLabel, operatorType }) => {
     } else {
       dispatch(DecimalPointAction());
     }
+    // switch (operatorType) {
+    //   case ActionTypes.PLUS:
+    //     dispatch(PlusAction());
+    //     break;
+    // 
+    //   case ActionTypes.MINUS:
+    //     dispatch(MinusAction());
+    //     break;
+    // 
+    //   case ActionTypes.MULTIPLY:
+    //     dispatch(MultiplyAction());
+    //     break;
+    // 
+    //   case ActionTypes.DIVIDE:
+    //     dispatch(DivideAction());
+    //     break;
+    // 
+    //   case ActionTypes.CLEAR:
+    //     dispatch(ClearAction());
+    //     break;
+    // 
+    //   case ActionTypes.EQUAL:
+    //     dispatch(EqualAction());
+    //     break;
+    // 
+    //   default:
+    //     dispatch(DecimalPointAction());
+    // }
   }
 
   return (

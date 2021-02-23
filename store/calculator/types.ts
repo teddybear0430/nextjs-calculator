@@ -31,7 +31,7 @@ interface MultiplyAction extends Action {
   type: typeof ActionTypes.MULTIPLY,
 }
 
-interface DevideAction extends Action {
+interface DivideAction extends Action {
   type: typeof ActionTypes.DIVIDE,
 }
 
@@ -52,7 +52,7 @@ export type CaliculatorActionTypes =
   PlusAction |
   MinusAction |
   MultiplyAction |
-  DevideAction |
+  DivideAction |
   ClearAction |
   EqualAction |
   DecimalPointAction;

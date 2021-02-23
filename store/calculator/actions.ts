@@ -28,7 +28,7 @@ export const MultiplyAction = (): CaliculatorActionTypes => {
   }
 }
 
-export const DevideAction = (): CaliculatorActionTypes => {
+export const DivideAction = (): CaliculatorActionTypes => {
   return {
     type: ActionTypes.DIVIDE,
   }
