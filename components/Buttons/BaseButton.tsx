@@ -9,8 +9,8 @@ export const BaseButton = styled.div`
   border-radius: 50%;
   font-size: 42px;
   color: #fff;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
 
   &:active {
