@@ -17,11 +17,11 @@ export const calculatorReducer = (
   switch (action.type) {
     // 数値を入力したときの処理
     case ActionTypes.INPUT_NUMBER:
-      // 計算終了後に0が押された時
-      if (action.payload.inputValue === 0 && state.showingResult && state.operator === '') {
+      // 計算終了後に数値が入力された時
+      if (state.operator === '' && state.showingResult) {
         return {
           ...state,
-          inputValue: 0,
+          inputValue: action.payload.inputValue,
           operator: '',
           resultValue: 0,
           calculate: false,
@@ -30,7 +30,7 @@ export const calculatorReducer = (
         }
       }
 
-      // 小数点が入力されているとき
+      // 小数点が入力されている時
       if (state.isDecimalPoint) {
         return {
           ...state,
@@ -135,7 +135,7 @@ export const calculatorReducer = (
         };
       }
 
-    // 入力をクリアしたときの処理
+    // 入力をクリアした時
     case ActionTypes.CLEAR:
       return {
         ...state,
@@ -147,7 +147,7 @@ export const calculatorReducer = (
         isDecimalPoint: false,
       }
 
-    // イコールを押したとき
+    // イコールを押した時
     case ActionTypes.EQUAL:
       switch (state.operator) {
         case '+':
@@ -200,18 +200,19 @@ export const calculatorReducer = (
 
     // 小数点のボタンがクリックされた時
     case ActionTypes.DECIMAL_POINT:
-      if (state.isDecimalPoint) {
+      const num = String(state.inputValue);
+
+      // 計算結果に'.'という文字列が含まれる場合も小数点を付けないようにする
+      if (state.isDecimalPoint || num.indexOf('.') !== -1) {
         return {
           ...state,
           inputValue: state.inputValue,
-          showingResult: false,
           isDecimalPoint: true,
         };
       } else {
         return {
           ...state,
           inputValue: state.inputValue + '.',
-          showingResult: false,
           isDecimalPoint: true,
         };
       }
