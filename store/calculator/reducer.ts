@@ -7,6 +7,7 @@ const initialState: State = {
   resultValue: 0,
   calculate: false,
   showingResult: false,
+  isDecimalPoint: false,
 };
 
 export const calculatorReducer = (
@@ -16,11 +17,32 @@ export const calculatorReducer = (
   switch (action.type) {
     // 数値を入力したときの処理
     case ActionTypes.INPUT_NUMBER:
-      return {
-        ...state,
-        // * 10しないと入力した値の保持ができない
-        inputValue: state.inputValue * 10 + action.payload.inputValue,
-        showingResult: false,
+      // 0が押された時
+      // if (action.payload.inputValue === 0 && !state.calculate) {
+      //   return {
+      //     ...state,
+      //     inputValue: 0,
+      //     operator: '',
+      //     resultValue: 0,
+      //     calculate: false,
+      //     showingResult: false,
+      //     isDecimalPoint: false,
+      //   }
+      // }
+
+      if (state.isDecimalPoint) {
+        return {
+          ...state,
+          inputValue: Number(`${state.inputValue}${action.payload.inputValue}`),
+          showingResult: false,
+        }
+      } else {
+        return {
+          ...state,
+          // * 10しないと入力した値の保持ができない
+          inputValue: state.inputValue * 10 + action.payload.inputValue,
+          showingResult: false,
+        }
       }
 
     // 足し算の時
@@ -41,6 +63,7 @@ export const calculatorReducer = (
           calculate: true,
           resultValue: state.inputValue,
           showingResult: true,
+          isDecimalPoint: false,
         };
       }
 
@@ -63,6 +86,7 @@ export const calculatorReducer = (
           calculate: true,
           resultValue: state.inputValue,
           showingResult: true,
+          isDecimalPoint: false,
         };
       }
 
@@ -84,6 +108,7 @@ export const calculatorReducer = (
           calculate: true,
           resultValue: state.inputValue,
           showingResult: true,
+          isDecimalPoint: false,
         };
       }
 
@@ -105,6 +130,7 @@ export const calculatorReducer = (
           calculate: true,
           resultValue: state.inputValue,
           showingResult: true,
+          isDecimalPoint: false,
         };
       }
 
@@ -117,6 +143,7 @@ export const calculatorReducer = (
         resultValue: 0,
         calculate: false,
         showingResult: false,
+        isDecimalPoint: false,
       }
 
     // イコールを押したとき
@@ -130,6 +157,7 @@ export const calculatorReducer = (
             calculate: false,
             resultValue: state.resultValue + state.inputValue,
             showingResult: true,
+            isDecimalPoint: false,
           };
 
         case '-':
@@ -140,6 +168,7 @@ export const calculatorReducer = (
             calculate: false,
             resultValue: state.resultValue - state.inputValue,
             showingResult: true,
+            isDecimalPoint: false,
           };
 
         case '*':
@@ -150,6 +179,7 @@ export const calculatorReducer = (
             calculate: false,
             resultValue: state.resultValue * state.inputValue,
             showingResult: true,
+            isDecimalPoint: false,
           };
 
         case '/':
@@ -160,11 +190,31 @@ export const calculatorReducer = (
             calculate: false,
             resultValue: state.resultValue / state.inputValue,
             showingResult: true,
+            isDecimalPoint: false,
           };
 
         default:
           return state;
       }
+
+    // 小数点のボタンがクリックされた時
+    case ActionTypes.DECIMAL_POINT:
+      if (state.isDecimalPoint) {
+        return {
+          ...state,
+          inputValue: state.inputValue,
+          showingResult: false,
+          isDecimalPoint: true,
+        };
+      } else {
+        return {
+          ...state,
+          inputValue: state.inputValue + '.',
+          showingResult: false,
+          isDecimalPoint: true,
+        };
+      }
+
 
     default:
       return state;

@@ -8,6 +8,7 @@ export interface State {
   resultValue: number,
   calculate: boolean,
   showingResult: boolean,
+  isDecimalPoint: boolean,
 }
 
 // Actionの型
@@ -42,6 +43,10 @@ interface EqualAction extends Action {
   type: typeof ActionTypes.EQUAL,
 }
 
+interface DecimalPointAction extends Action {
+  type: typeof ActionTypes.DECIMAL_POINT,
+}
+
 export type CaliculatorActionTypes =
   InputAction |
   PlusAction |
@@ -49,4 +54,5 @@ export type CaliculatorActionTypes =
   MultiplyAction |
   DevideAction |
   ClearAction |
-  EqualAction;
+  EqualAction |
+  DecimalPointAction;

@@ -6,4 +6,5 @@ export const ActionTypes = {
   DIVIDE: 'DIVIDE',
   CLEAR: 'CLEAR',
   EQUAL: 'EQUAL',
+  DECIMAL_POINT: 'DECIMAL_POINT',
 } as const;

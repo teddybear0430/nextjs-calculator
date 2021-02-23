@@ -45,3 +45,9 @@ export const EqualAction = (): CaliculatorActionTypes => {
     type: ActionTypes.EQUAL,
   }
 }
+
+export const DecimalPointAction = (): CaliculatorActionTypes => {
+  return {
+    type: ActionTypes.DECIMAL_POINT,
+  }
+}

@@ -49,6 +49,7 @@ const IndexPage = () => (
       </Row>
       <Row>
         <NumButton num={0} />
+        <OperatorButton operatorLabel='.' operatorType='DECIMAL_POINT' />
         <OperatorButton operatorLabel='=' operatorType='EQUAL' />
       </Row>
     </CalculatorDiv>

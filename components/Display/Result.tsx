@@ -10,9 +10,22 @@ interface Props {
   result: State;
 }
 
+// 大きい桁数の数値や小数点以下の桁数が入力された場合を考慮
+const fixDigits = (resultValue: string | number) => {
+  // 小数点が入力された時は文字列になっているので、除外する
+  if (typeof resultValue === 'string') return resultValue;
+
+  // 10e10・・・1兆
+  if (resultValue >= 1e10) {
+    return resultValue.toExponential(2);
+  } else {
+    return Math.round(resultValue * 1000000) / 1000000;
+  }
+};
+
 const Result: React.FC<Props> = ({ result }) => (
   <ResultDiv>
-    {result.showingResult ? result.resultValue : result.inputValue}
+    {result.showingResult ? fixDigits(result.resultValue) : fixDigits(result.inputValue)}
   </ResultDiv>
 );
 

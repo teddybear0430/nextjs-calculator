@@ -8,7 +8,8 @@ import {
   MultiplyAction,
   DevideAction,
   ClearAction,
-  EqualAction
+  EqualAction,
+  DecimalPointAction
 } from '../../store/calculator/actions';
 import { BaseButton } from './BaseButton';
 
@@ -36,8 +37,10 @@ const OperatorButton: React.FC<Props> = ({ operatorLabel, operatorType }) => {
       dispatch(DevideAction());
     } else if(operatorType === 'CLEAR') {
       dispatch(ClearAction());
-    } else {
+    } else if(operatorType === 'EQUAL') {
       dispatch(EqualAction());
+    } else {
+      dispatch(DecimalPointAction());
     }
   }
 
