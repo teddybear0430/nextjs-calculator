@@ -18,11 +18,28 @@ interface Props {
   operatorType: string;
 }
 
+// ボタンに対応した背景色の設定を行う
 type StyleType = Pick<Props, 'operatorType'>;
 
 const Button = styled(BaseButton)<StyleType>`
-  background: ${(props) => (props.operatorType !== 'CLEAR' ? '#ff8200' : '#9a9696')};
+  ${props => getBgColor(props.operatorType)}
 `;
+
+const getBgColor = (operatorType: string) => {
+  if (operatorType === 'CLEAR') {
+    return `
+      background: #9a9696;
+    `;
+  } else if(operatorType === 'DECIMAL_POINT') {
+    return `
+      background: #2b2b2b;
+    `;
+  } else {
+    return `
+      background: #ff8200;
+    `;
+  }
+}
 
 const OperatorButton: React.FC<Props> = ({ operatorLabel, operatorType }) => {
   const dispatch = useDispatch();
