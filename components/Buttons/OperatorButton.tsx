@@ -13,9 +13,12 @@ import {
 } from '../../store/calculator/actions';
 import { BaseButton } from './BaseButton';
 
+type StyleType = {
+  operatorType: string;
+};
 
-const Button = styled(BaseButton)`
-  background: #ff8200;
+const Button = styled(BaseButton)<StyleType>`
+  background: ${(props) => (props.operatorType !== 'CLEAR' ? '#ff8200' : '#9a9696')};
 `;
 
 interface Props {
@@ -42,38 +45,10 @@ const OperatorButton: React.FC<Props> = ({ operatorLabel, operatorType }) => {
     } else {
       dispatch(DecimalPointAction());
     }
-    // switch (operatorType) {
-    //   case ActionTypes.PLUS:
-    //     dispatch(PlusAction());
-    //     break;
-    // 
-    //   case ActionTypes.MINUS:
-    //     dispatch(MinusAction());
-    //     break;
-    // 
-    //   case ActionTypes.MULTIPLY:
-    //     dispatch(MultiplyAction());
-    //     break;
-    // 
-    //   case ActionTypes.DIVIDE:
-    //     dispatch(DivideAction());
-    //     break;
-    // 
-    //   case ActionTypes.CLEAR:
-    //     dispatch(ClearAction());
-    //     break;
-    // 
-    //   case ActionTypes.EQUAL:
-    //     dispatch(EqualAction());
-    //     break;
-    // 
-    //   default:
-    //     dispatch(DecimalPointAction());
-    // }
   }
 
   return (
-    <Button onClick={() => onOperationClick(operatorType)}>{operatorLabel}</Button>
+    <Button operatorType={operatorType} onClick={() => onOperationClick(operatorType)}>{operatorLabel}</Button>
   )
 };
 
