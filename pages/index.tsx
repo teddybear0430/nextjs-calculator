@@ -7,6 +7,7 @@ import NumButton from '../components/Buttons/NumButton';
 import OperatorButton from '../components/Buttons/OperatorButton';
 
 const CalculatorDiv = styled.div`
+  font-family: 'Oswald', sans-serif;
   width: 100%;
   max-width: 450px;
   background: #000000;
