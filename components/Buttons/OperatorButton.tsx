@@ -13,18 +13,16 @@ import {
 } from '../../store/calculator/actions';
 import { BaseButton } from './BaseButton';
 
-type StyleType = {
-  operatorType: string;
-};
-
-const Button = styled(BaseButton)<StyleType>`
-  background: ${(props) => (props.operatorType !== 'CLEAR' ? '#ff8200' : '#9a9696')};
-`;
-
 interface Props {
   operatorLabel: string;
   operatorType: string;
 }
+
+type StyleType = Pick<Props, 'operatorType'>;
+
+const Button = styled(BaseButton)<StyleType>`
+  background: ${(props) => (props.operatorType !== 'CLEAR' ? '#ff8200' : '#9a9696')};
+`;
 
 const OperatorButton: React.FC<Props> = ({ operatorLabel, operatorType }) => {
   const dispatch = useDispatch();
