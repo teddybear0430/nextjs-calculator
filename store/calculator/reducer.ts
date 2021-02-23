@@ -17,19 +17,20 @@ export const calculatorReducer = (
   switch (action.type) {
     // 数値を入力したときの処理
     case ActionTypes.INPUT_NUMBER:
-      // 0が押された時
-      // if (action.payload.inputValue === 0 && !state.calculate) {
-      //   return {
-      //     ...state,
-      //     inputValue: 0,
-      //     operator: '',
-      //     resultValue: 0,
-      //     calculate: false,
-      //     showingResult: false,
-      //     isDecimalPoint: false,
-      //   }
-      // }
+      // 計算終了後に0が押された時
+      if (action.payload.inputValue === 0 && state.showingResult && state.operator === '') {
+        return {
+          ...state,
+          inputValue: 0,
+          operator: '',
+          resultValue: 0,
+          calculate: false,
+          showingResult: false,
+          isDecimalPoint: false,
+        }
+      }
 
+      // 小数点が入力されているとき
       if (state.isDecimalPoint) {
         return {
           ...state,
@@ -47,7 +48,7 @@ export const calculatorReducer = (
 
     // 足し算の時
     case ActionTypes.PLUS:
-      if (state.calculate === true) {
+      if (state.calculate) {
         return {
           ...state,
           inputValue: 0,
@@ -70,7 +71,7 @@ export const calculatorReducer = (
 
     // 引き算の時
     case ActionTypes.MINUS:
-      if (state.calculate === true) {
+      if (state.calculate) {
         return {
           ...state,
           inputValue: 0,
@@ -92,7 +93,7 @@ export const calculatorReducer = (
 
     // 掛け算の時
     case ActionTypes.MULTIPLY:
-      if (state.calculate === true) {
+      if (state.calculate) {
         return {
           ...state,
           inputValue: 0,
@@ -114,7 +115,7 @@ export const calculatorReducer = (
 
     // 割り算の時
     case ActionTypes.DIVIDE:
-      if (state.calculate === true) {
+      if (state.calculate) {
         return {
           ...state,
           inputValue: 0,
