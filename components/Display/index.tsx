@@ -9,6 +9,8 @@ const DisplayDiv = styled.div`
   background: #2b2b2b;
   color: #fff;
   border-top: 40px solid #000;
+  padding: 16px 36px;
+  text-align: right;
 `;
 
 const Display: React.FC = () => {

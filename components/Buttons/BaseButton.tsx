@@ -12,4 +12,8 @@ export const BaseButton = styled.div`
   width: 80px;
   height: 80px;
   cursor: pointer;
+
+  &:active {
+    opacity: 0.8;
+  }
 `;

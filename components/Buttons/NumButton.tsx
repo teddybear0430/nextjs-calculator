@@ -10,7 +10,12 @@ const Button = styled(BaseButton)`
 `;
 
 const ZeroButton = styled(BaseButton)`
+  justify-content: left;
   background: #2b2b2b;
+  width: 140px;
+  border-radius: 40px;
+  margin: 10px 20px;
+  padding-left: 20px;
 `;
 
 interface Props {
