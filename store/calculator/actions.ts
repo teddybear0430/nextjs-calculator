@@ -1,7 +1,7 @@
 import { ActionTypes } from '../action-types';
-import { CaliculatorActionTypes } from './types';
+import { CalculatorActionTypes } from './types';
 
-export const InputAction = (inputValue: number): CaliculatorActionTypes => {
+export const InputAction = (inputValue: number): CalculatorActionTypes => {
   return {
     type: ActionTypes.INPUT_NUMBER,
     payload: {
@@ -10,43 +10,43 @@ export const InputAction = (inputValue: number): CaliculatorActionTypes => {
   }
 }
 
-export const PlusAction = (): CaliculatorActionTypes => {
+export const PlusAction = (): CalculatorActionTypes => {
   return {
     type: ActionTypes.PLUS,
   }
 }
 
-export const MinusAction = (): CaliculatorActionTypes => {
+export const MinusAction = (): CalculatorActionTypes => {
   return {
     type: ActionTypes.MINUS,
   }
 }
 
-export const MultiplyAction = (): CaliculatorActionTypes => {
+export const MultiplyAction = (): CalculatorActionTypes => {
   return {
     type: ActionTypes.MULTIPLY,
   }
 }
 
-export const DivideAction = (): CaliculatorActionTypes => {
+export const DivideAction = (): CalculatorActionTypes => {
   return {
     type: ActionTypes.DIVIDE,
   }
 }
 
-export const ClearAction = (): CaliculatorActionTypes => {
+export const ClearAction = (): CalculatorActionTypes => {
   return {
     type: ActionTypes.CLEAR,
   }
 }
 
-export const EqualAction = (): CaliculatorActionTypes => {
+export const EqualAction = (): CalculatorActionTypes => {
   return {
     type: ActionTypes.EQUAL,
   }
 }
 
-export const DecimalPointAction = (): CaliculatorActionTypes => {
+export const DecimalPointAction = (): CalculatorActionTypes => {
   return {
     type: ActionTypes.DECIMAL_POINT,
   }

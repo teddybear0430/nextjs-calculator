@@ -1,5 +1,5 @@
 import { ActionTypes } from '../action-types';
-import { State, CaliculatorActionTypes } from './types';
+import { State, CalculatorActionTypes } from './types';
 
 const initialState: State = {
   inputValue: 0,
@@ -8,12 +8,12 @@ const initialState: State = {
   calculate: false,
   showingResult: false,
   isDecimalPoint: false,
-  calculationHistory: [],
+  calculationProgresses: [],
 };
 
 export const calculatorReducer = (
   state = initialState,
-  action: CaliculatorActionTypes,
+  action: CalculatorActionTypes,
 ) => {
   switch (action.type) {
     // 数値を入力したときの処理
@@ -57,7 +57,7 @@ export const calculatorReducer = (
           operator: '+',
           resultValue: state.resultValue + state.inputValue,
           showingResult: true,
-          calculationHistory: [...state.calculationHistory, String(state.inputValue), '+'],
+          calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '+'],
         };
       } else {
         return {
@@ -68,7 +68,7 @@ export const calculatorReducer = (
           resultValue: state.inputValue,
           showingResult: true,
           isDecimalPoint: false,
-          calculationHistory: [...state.calculationHistory, String(state.inputValue), '+'],
+          calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '+'],
         };
       }
 
@@ -82,7 +82,7 @@ export const calculatorReducer = (
           operator: '-',
           resultValue: state.resultValue - state.inputValue,
           showingResult: true,
-          calculationHistory: [...state.calculationHistory, String(state.inputValue), '-'],
+          calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '-'],
         };
       } else {
         return {
@@ -93,7 +93,7 @@ export const calculatorReducer = (
           resultValue: state.inputValue,
           showingResult: true,
           isDecimalPoint: false,
-          calculationHistory: [...state.calculationHistory, String(state.inputValue), '-'],
+          calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '-'],
         };
       }
 
@@ -106,7 +106,7 @@ export const calculatorReducer = (
           operator: '*',
           resultValue: state.resultValue * state.inputValue,
           showingResult: true,
-          calculationHistory: [...state.calculationHistory, String(state.inputValue), '×'],
+          calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '×'],
         };
       } else {
         return {
@@ -117,7 +117,7 @@ export const calculatorReducer = (
           resultValue: state.inputValue,
           showingResult: true,
           isDecimalPoint: false,
-          calculationHistory: [...state.calculationHistory, String(state.inputValue), '×'],
+          calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '×'],
         };
       }
 
@@ -130,7 +130,7 @@ export const calculatorReducer = (
           operator: '/',
           resultValue: state.resultValue / state.inputValue,
           showingResult: true,
-          calculationHistory: [...state.calculationHistory, String(state.inputValue), '÷'],
+          calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '÷'],
         };
       } else {
         return {
@@ -141,7 +141,7 @@ export const calculatorReducer = (
           resultValue: state.inputValue,
           showingResult: true,
           isDecimalPoint: false,
-          calculationHistory: [...state.calculationHistory, String(state.inputValue), '÷'],
+          calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '÷'],
         };
       }
 
@@ -155,7 +155,7 @@ export const calculatorReducer = (
         calculate: false,
         showingResult: false,
         isDecimalPoint: false,
-        calculationHistory: [],
+        calculationProgresses: [],
       }
 
     // イコールを押した時
@@ -170,7 +170,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue + state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
-            calculationHistory: [...state.calculationHistory, String(state.inputValue)],
+            calculationProgresses: [...state.calculationProgresses, String(state.inputValue)],
           };
 
         case '-':
@@ -182,7 +182,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue - state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
-            calculationHistory: [...state.calculationHistory, String(state.inputValue)],
+            calculationProgresses: [...state.calculationProgresses, String(state.inputValue)],
           };
 
         case '*':
@@ -194,7 +194,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue * state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
-            calculationHistory: [...state.calculationHistory, String(state.inputValue)],
+            calculationProgresses: [...state.calculationProgresses, String(state.inputValue)],
           };
 
         case '/':
@@ -206,7 +206,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue / state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
-            calculationHistory: [...state.calculationHistory, String(state.inputValue)],
+            calculationProgresses: [...state.calculationProgresses, String(state.inputValue)],
           };
 
         default:

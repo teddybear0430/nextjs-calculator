@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import Layout from '../components/Layout'
 import Display from '../components/Display/index';
 import { BaseButton } from '../components/Buttons/BaseButton';
@@ -54,6 +53,6 @@ const IndexPage = () => (
       </Row>
     </CalculatorDiv>
   </Layout>
-)
+);
 
 export default IndexPage;

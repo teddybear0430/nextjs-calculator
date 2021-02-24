@@ -9,7 +9,7 @@ export interface State {
   calculate: boolean,
   showingResult: boolean,
   isDecimalPoint: boolean,
-  calculationHistory: String[];
+  calculationProgresses: String[];
 }
 
 // Actionの型
@@ -48,7 +48,7 @@ interface DecimalPointAction extends Action {
   type: typeof ActionTypes.DECIMAL_POINT,
 }
 
-export type CaliculatorActionTypes =
+export type CalculatorActionTypes =
   InputAction |
   PlusAction |
   MinusAction |

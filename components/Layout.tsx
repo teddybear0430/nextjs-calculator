@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react'
-import Head from 'next/head'
+import React, { ReactNode } from 'react';
+import Head from 'next/head';
 
 type Props = {
   children?: ReactNode
@@ -16,9 +16,9 @@ const Layout = ({ children, title }: Props) => (
       <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Oswald&display=swap" rel="stylesheet" />
     </Head>
     <div id="wrapper">
-    {children}
+      {children}
     </div>
   </div>
-)
+);
 
-export default Layout
+export default Layout;

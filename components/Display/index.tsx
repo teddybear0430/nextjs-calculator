@@ -3,15 +3,16 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
 import Result from './Result';
-import CalculationHistory from './CaluculatorHistory';
+import CalculationProgress from './CalculationProgress';
 import { RootState } from '../../store';
 
 const DisplayDiv = styled.div`
   background: #2b2b2b;
   color: #fff;
   border-top: 40px solid #000;
-  padding: 16px 36px;
+  padding: 20px 32px 16px;
   text-align: right;
+  height: 104px;
 `;
 
 const Display: React.FC = () => {
@@ -21,7 +22,7 @@ const Display: React.FC = () => {
 
   return (
     <DisplayDiv>
-      <CalculationHistory result={result} />
+      <CalculationProgress result={result} />
       <Result result={result} />
     </DisplayDiv>
   );
