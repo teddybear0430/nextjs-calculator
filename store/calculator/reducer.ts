@@ -8,6 +8,7 @@ const initialState: State = {
   calculate: false,
   showingResult: false,
   isDecimalPoint: false,
+  calculationHistory: [],
 };
 
 export const calculatorReducer = (
@@ -27,6 +28,7 @@ export const calculatorReducer = (
           calculate: false,
           showingResult: false,
           isDecimalPoint: false,
+          calculationHistory: [],
         }
       }
 
@@ -55,6 +57,7 @@ export const calculatorReducer = (
           operator: '+',
           resultValue: state.resultValue + state.inputValue,
           showingResult: true,
+          calculationHistory: [...state.calculationHistory, String(state.inputValue), '+'],
         };
       } else {
         return {
@@ -65,6 +68,7 @@ export const calculatorReducer = (
           resultValue: state.inputValue,
           showingResult: true,
           isDecimalPoint: false,
+          calculationHistory: [...state.calculationHistory, String(state.inputValue), '+'],
         };
       }
 
@@ -78,6 +82,7 @@ export const calculatorReducer = (
           operator: '-',
           resultValue: state.resultValue - state.inputValue,
           showingResult: true,
+          calculationHistory: [...state.calculationHistory, String(state.inputValue), '-'],
         };
       } else {
         return {
@@ -88,6 +93,7 @@ export const calculatorReducer = (
           resultValue: state.inputValue,
           showingResult: true,
           isDecimalPoint: false,
+          calculationHistory: [...state.calculationHistory, String(state.inputValue), '-'],
         };
       }
 
@@ -100,6 +106,7 @@ export const calculatorReducer = (
           operator: '*',
           resultValue: state.resultValue * state.inputValue,
           showingResult: true,
+          calculationHistory: [...state.calculationHistory, String(state.inputValue), '×'],
         };
       } else {
         return {
@@ -110,6 +117,7 @@ export const calculatorReducer = (
           resultValue: state.inputValue,
           showingResult: true,
           isDecimalPoint: false,
+          calculationHistory: [...state.calculationHistory, String(state.inputValue), '×'],
         };
       }
 
@@ -122,6 +130,7 @@ export const calculatorReducer = (
           operator: '/',
           resultValue: state.resultValue / state.inputValue,
           showingResult: true,
+          calculationHistory: [...state.calculationHistory, String(state.inputValue), '÷'],
         };
       } else {
         return {
@@ -132,6 +141,7 @@ export const calculatorReducer = (
           resultValue: state.inputValue,
           showingResult: true,
           isDecimalPoint: false,
+          calculationHistory: [...state.calculationHistory, String(state.inputValue), '÷'],
         };
       }
 
@@ -145,6 +155,7 @@ export const calculatorReducer = (
         calculate: false,
         showingResult: false,
         isDecimalPoint: false,
+        calculationHistory: [],
       }
 
     // イコールを押した時
@@ -159,6 +170,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue + state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
+            calculationHistory: [...state.calculationHistory, String(state.inputValue)],
           };
 
         case '-':
@@ -170,6 +182,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue - state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
+            calculationHistory: [...state.calculationHistory, String(state.inputValue)],
           };
 
         case '*':
@@ -181,6 +194,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue * state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
+            calculationHistory: [...state.calculationHistory, String(state.inputValue)],
           };
 
         case '/':
@@ -192,6 +206,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue / state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
+            calculationHistory: [...state.calculationHistory, String(state.inputValue)],
           };
 
         default:

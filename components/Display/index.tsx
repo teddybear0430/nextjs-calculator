@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
 import Result from './Result';
+import CalculationHistory from './CaluculatorHistory';
 import { RootState } from '../../store';
 
 const DisplayDiv = styled.div`
@@ -20,6 +21,7 @@ const Display: React.FC = () => {
 
   return (
     <DisplayDiv>
+      <CalculationHistory result={result} />
       <Result result={result} />
     </DisplayDiv>
   );

@@ -9,6 +9,7 @@ export interface State {
   calculate: boolean,
   showingResult: boolean,
   isDecimalPoint: boolean,
+  calculationHistory: String[];
 }
 
 // Actionの型
