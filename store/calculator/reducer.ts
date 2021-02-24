@@ -28,7 +28,7 @@ export const calculatorReducer = (
           calculate: false,
           showingResult: false,
           isDecimalPoint: false,
-          calculationHistory: [],
+          calculationProgresses: [],
         }
       }
 
@@ -57,6 +57,7 @@ export const calculatorReducer = (
           operator: '+',
           resultValue: state.resultValue + state.inputValue,
           showingResult: true,
+          isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '+'],
         };
       } else {
@@ -82,6 +83,7 @@ export const calculatorReducer = (
           operator: '-',
           resultValue: state.resultValue - state.inputValue,
           showingResult: true,
+          isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '-'],
         };
       } else {
@@ -106,6 +108,7 @@ export const calculatorReducer = (
           operator: '*',
           resultValue: state.resultValue * state.inputValue,
           showingResult: true,
+          isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '×'],
         };
       } else {
@@ -130,6 +133,7 @@ export const calculatorReducer = (
           operator: '/',
           resultValue: state.resultValue / state.inputValue,
           showingResult: true,
+          isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '÷'],
         };
       } else {
@@ -231,7 +235,6 @@ export const calculatorReducer = (
           isDecimalPoint: true,
         };
       }
-
 
     default:
       return state;
