@@ -5,7 +5,7 @@ export const BaseButton = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  margin: 8px 10px;
   border-radius: 50%;
   font-size: 42px;
   color: #fff;

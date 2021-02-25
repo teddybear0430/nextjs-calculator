@@ -10,6 +10,7 @@ const CalculatorDiv = styled.div`
   max-width: 396px;
   background: #000000;
   margin: auto;
+  padding-bottom: 22px;
 `;
 
 const Row = styled.div`

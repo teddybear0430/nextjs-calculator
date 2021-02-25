@@ -18,7 +18,6 @@ const DisplayDiv = styled.div`
 const Display: React.FC = () => {
   // storeからstateを取得する
   const result = useSelector((state: RootState) => state.calculator);
-  console.log(result);
 
   return (
     <DisplayDiv>

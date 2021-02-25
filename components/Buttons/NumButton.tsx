@@ -14,7 +14,7 @@ const ZeroButton = styled(Button)`
   width: 136px;
   border-radius: 40px;
   padding-left: 20px;
-  margin: 10px 12px;
+  margin: 10px;
 `;
 
 interface Props {
