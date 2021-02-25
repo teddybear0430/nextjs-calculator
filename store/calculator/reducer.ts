@@ -174,7 +174,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue + state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
-            calculationProgresses: [...state.calculationProgresses, String(state.inputValue)],
+            calculationProgresses: [],
           };
 
         case '-':
@@ -186,7 +186,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue - state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
-            calculationProgresses: [...state.calculationProgresses, String(state.inputValue)],
+            calculationProgresses: [],
           };
 
         case '*':
@@ -198,7 +198,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue * state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
-            calculationProgresses: [...state.calculationProgresses, String(state.inputValue)],
+            calculationProgresses: [],
           };
 
         case '/':
@@ -210,7 +210,7 @@ export const calculatorReducer = (
             resultValue: state.resultValue / state.inputValue,
             showingResult: true,
             isDecimalPoint: false,
-            calculationProgresses: [...state.calculationProgresses, String(state.inputValue)],
+            calculationProgresses: [],
           };
 
         default:
