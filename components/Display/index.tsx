@@ -1,9 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-
-import Result from './Result';
+import styled from 'styled-components';
 import CalculationProgress from './CalculationProgress';
+import Result from './Result';
 import { RootState } from '../../store';
 
 const DisplayDiv = styled.div`
@@ -25,6 +24,6 @@ const Display: React.FC = () => {
       <Result result={result} />
     </DisplayDiv>
   );
-}
+};
 
 export default Display;

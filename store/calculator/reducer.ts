@@ -1,5 +1,5 @@
-import { ActionTypes } from '../action-types';
 import { State, CalculatorActionTypes } from './types';
+import { ActionTypes } from '../action-types';
 
 const initialState: State = {
   inputValue: 0,
@@ -30,7 +30,7 @@ export const calculatorReducer = (
           isDecimalPoint: false,
           calculationProgresses: [],
         }
-      }
+      };
 
       // 小数点が入力されている時
       if (state.isDecimalPoint) {
@@ -46,7 +46,7 @@ export const calculatorReducer = (
           inputValue: state.inputValue * 10 + action.payload.inputValue,
           showingResult: false,
         }
-      }
+      };
 
     // 足し算の時
     case ActionTypes.PLUS:
@@ -59,7 +59,7 @@ export const calculatorReducer = (
           showingResult: true,
           isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '+'],
-        };
+        }
       } else {
         return {
           ...state,
@@ -70,8 +70,8 @@ export const calculatorReducer = (
           showingResult: true,
           isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '+'],
-        };
-      }
+        }
+      };
 
 
     // 引き算の時
@@ -85,7 +85,7 @@ export const calculatorReducer = (
           showingResult: true,
           isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '-'],
-        };
+        }
       } else {
         return {
           ...state,
@@ -96,8 +96,8 @@ export const calculatorReducer = (
           showingResult: true,
           isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '-'],
-        };
-      }
+        }
+      };
 
     // 掛け算の時
     case ActionTypes.MULTIPLY:
@@ -110,7 +110,7 @@ export const calculatorReducer = (
           showingResult: true,
           isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '×'],
-        };
+        }
       } else {
         return {
           ...state,
@@ -121,8 +121,8 @@ export const calculatorReducer = (
           showingResult: true,
           isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '×'],
-        };
-      }
+        }
+      };
 
     // 割り算の時
     case ActionTypes.DIVIDE:
@@ -135,7 +135,7 @@ export const calculatorReducer = (
           showingResult: true,
           isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '÷'],
-        };
+        }
       } else {
         return {
           ...state,
@@ -146,8 +146,8 @@ export const calculatorReducer = (
           showingResult: true,
           isDecimalPoint: false,
           calculationProgresses: [...state.calculationProgresses, String(state.inputValue), '÷'],
-        };
-      }
+        }
+      };
 
     // 入力をクリアした時
     case ActionTypes.CLEAR:
@@ -160,7 +160,7 @@ export const calculatorReducer = (
         showingResult: false,
         isDecimalPoint: false,
         calculationProgresses: [],
-      }
+      };
 
     // イコールを押した時
     case ActionTypes.EQUAL:
@@ -215,7 +215,7 @@ export const calculatorReducer = (
 
         default:
           return state;
-      }
+      };
 
     // 小数点のボタンがクリックされた時
     case ActionTypes.DECIMAL_POINT:
@@ -227,16 +227,16 @@ export const calculatorReducer = (
           ...state,
           inputValue: state.inputValue,
           isDecimalPoint: true,
-        };
+        }
       } else {
         return {
           ...state,
           inputValue: state.inputValue + '.',
           isDecimalPoint: true,
-        };
-      }
+        }
+      };
 
     default:
       return state;
   }
-}
+};

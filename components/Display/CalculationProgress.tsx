@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { DisplayWrapper } from './DisplayWrapper';
 import { State } from '../../store/calculator/types';
 

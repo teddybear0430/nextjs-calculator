@@ -1,7 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-
+import styled from 'styled-components';
 import { BaseButton } from './BaseButton';
 import { InputAction } from '../../store/calculator/actions';
 
@@ -26,14 +25,14 @@ const NumButton: React.FC<Props> = ({ num }) => {
 
   const onNumClick = (num: number) => {
     dispatch(InputAction(num));
-  }
+  };
 
   return (
     <>
       {num === 0 && <ZeroButton onClick={() => onNumClick(num)}>{num}</ZeroButton>}
       {num !== 0 && <Button onClick={() => onNumClick(num)}>{num}</Button>}
     </>
-  )
+  );
 };
 
 export default NumButton;

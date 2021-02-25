@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import Layout from '../components/Layout'
-import Display from '../components/Display/index';
 import { BaseButton } from '../components/Buttons/BaseButton';
 import NumButton from '../components/Buttons/NumButton';
 import OperatorButton from '../components/Buttons/OperatorButton';
+import Display from '../components/Display/index';
+import Layout from '../components/Layout';
 
 const CalculatorDiv = styled.div`
   width: 100%;

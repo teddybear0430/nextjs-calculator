@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-
+import styled from 'styled-components';
+import { BaseButton } from './BaseButton';
 import {
   PlusAction,
   MinusAction,
@@ -11,7 +11,6 @@ import {
   EqualAction,
   DecimalPointAction
 } from '../../store/calculator/actions';
-import { BaseButton } from './BaseButton';
 
 interface Props {
   operatorLabel: string;
@@ -39,7 +38,7 @@ const getBgColor = (operatorType: string) => {
       background: #ff8200;
     `;
   }
-}
+};
 
 const OperatorButton: React.FC<Props> = ({ operatorLabel, operatorType }) => {
   const dispatch = useDispatch();
@@ -60,11 +59,11 @@ const OperatorButton: React.FC<Props> = ({ operatorLabel, operatorType }) => {
     } else {
       dispatch(DecimalPointAction());
     }
-  }
+  };
 
   return (
     <Button operatorType={operatorType} onClick={() => onOperationClick(operatorType)}>{operatorLabel}</Button>
-  )
+  );
 };
 
 export default OperatorButton;
