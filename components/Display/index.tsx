@@ -8,7 +8,8 @@ import { RootState } from '../../store';
 const DisplayDiv = styled.div`
   background: #2b2b2b;
   color: #fff;
-  border-top: 40px solid #000;
+  border-top: 36px solid #000;
+  margin-bottom: 6px;
   padding: 20px 32px 16px;
   text-align: right;
   height: 104px;
