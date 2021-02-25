@@ -1,14 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+
+import { DisplayWrapper } from './DisplayWrapper';
 import { State } from '../../store/calculator/types';
-
-const ProgressWrapper = styled.div`
-  overflow-x: auto;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
 
 const ProgressDiv = styled.div`
   width: 330px;
@@ -27,11 +21,11 @@ interface Props {
 }
 
 const CalculationProgress: React.FC<Props> = ({ result }) => (
-  <ProgressWrapper>
+  <DisplayWrapper>
     <ProgressDiv>
       {result.calculationProgresses.map((e, i) => <span key={i}>{e}</span>)}
     </ProgressDiv>
-  </ProgressWrapper>
+  </DisplayWrapper>
 );
 
 export default CalculationProgress;
